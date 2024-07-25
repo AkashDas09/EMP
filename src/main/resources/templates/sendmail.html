@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Send Email with Attachment</title>
+<style type="text/css">
+body{
+background: url("img/teamwork-3213924_1920.jpg");
+	width: 100%;
+	height: 700px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+</style>
+</head>
+<body>
+	<center><h1 style="color: yellow">Send Email</h1></center>
+	<center><div>
+		<p style="color: red;">
+			<span th:if="${messagedone != null}" th:text="${messagedone}"></span>
+		</p>
+		<p style="color: red;">
+			<span th:if="${messagenotdone != null}" th:text="${messagenotdone}"></span>
+		</p>
+	</div></center>
+	<center><form action="#" th:action="@{/send-emails}" method="post"
+		enctype="multipart/form-data">
+		<label for="to" style="color: yellow">To:</label> <input type="email" id="to" name="to"
+			required /> <br><br /> <label for="subject" style="color: yellow">Subject:</label> <input
+			type="text" id="subject" name="subject" required /> <br><br /> <label
+			for="text" style="color: yellow">Message:</label>
+		<textarea id="text" name="text" required></textarea>
+		<br><br /> <label for="file" style="color: yellow">Attachment:</label> <input type="file"
+			id="file" name="file" required /><br> <br /> <input type="submit" 
+			value="Send Email" />
+	</form></center><br><br>
+	<center><button style="background-color: yellow"><a href="gohome" style="color: black">Back To Home</a></button></center>
+</body>
+</html>
